@@ -19,12 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('#nav').load('resources/navigation.html');
-        $('#whoWeAre').load('resources/whoWeAre.html');
-      });
-    </script>
+
   </head>
   <body>
     <div id="nav"></div>
@@ -34,7 +29,25 @@
       <h2><em>
         Please see <a href="aboutUs.html">about us</a> to learn more or
         <a href="bookATime">book a time</a>.
+        <span id="api-data">Derp</span>
       </em></div>
     </div>
+
+    <script>
+      $(document).ready(function(){
+        $('#nav').load('resources/navigation.html');
+      //  $('#whoWeAre').load('resources/whoWeAre.html');
+        var webserviceUrl="http://localhost:3000/reservation/findByList";
+        $.ajax({
+               type:'GET',
+               url: webserviceUrl,
+               dataType: 'json',
+               success: function(response){
+                 alert(response[0].mto);
+                    $('#api-data').html(response[0].mto);
+               }
+             });
+      });
+    </script>
   </body>
 </html>

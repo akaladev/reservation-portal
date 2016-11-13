@@ -54,54 +54,58 @@
         // });
       }
 
-      function formToJson(){
-        var startFormDateValues = document.getElementById("date").innerHTML.split("/");
-        var startFormTimeValues = document.getElementById("time").innerHTML.split(":");
-        var startYear = startFormDateValue[2],
-          startMonth = startFormDateValue[0],
-          startDay = startFormDateValue[1],
-          startHour = startFormTimeValues[0],
-          startMinute = startFormTimeValues[1];
-
-        var startDateTime = new Date(
-          startYear,
-          startMonth,
-          startDay,
-          startHour,
-          startMinute,
-          0
-        );
-
-        var endDateTime = startDateTime;
-        endDateTime = endDateTime.setTime(endDateTime.getTime() + (30*60000));
-
-        var startDateTimeString = startDay + "/" + startMonth + "/" + startYear
-          + " " + startHour + ":" + startMinute + ":00";
-
-        var endDateTimeString = endDateTime.getDate() + "/" +
-          endDateTime.getMonth() + "/" endDateTime.getFullYear() + " " +
-          endDateTime.getHours() + ":" + endDateTime.getMinutes() + ":00";
-
-        var familyName = document.getElementById("name") + "'s";
-
-        return {
-          "enddate": endDateTimeString,
-          "id": 0,
-          "reserver": familyName,
-          "startdate": startDateTimeString
-        };
-      }
+      // function formToJson(){
+      //   var startFormDateValues = document.getElementById("date").innerHTML.split("/");
+      //   var startFormTimeValues = document.getElementById("time").innerHTML.split(":");
+      //   var startYear = startFormDateValue[2],
+      //     startMonth = startFormDateValue[0],
+      //     startDay = startFormDateValue[1],
+      //     startHour = startFormTimeValues[0],
+      //     startMinute = startFormTimeValues[1];
+      //
+      //   var startDateTime = new Date(
+      //     startYear,
+      //     startMonth,
+      //     startDay,
+      //     startHour,
+      //     startMinute,
+      //     0
+      //   );
+      //
+      //   var endDateTime = startDateTime;
+      //   endDateTime = endDateTime.setTime(endDateTime.getTime() + (30*60000));
+      //
+      //   var startDateTimeString = startDay + "/" + startMonth + "/" + startYear
+      //     + " " + startHour + ":" + startMinute + ":00";
+      //
+      //   var endDateTimeString = endDateTime.getDate() + "/" +
+      //     endDateTime.getMonth() + "/" endDateTime.getFullYear() + " " +
+      //     endDateTime.getHours() + ":" + endDateTime.getMinutes() + ":00";
+      //
+      //   var familyName = document.getElementById("name") + "'s";
+      //
+      //   return {
+      //     "enddate": endDateTimeString,
+      //     "id": 0,
+      //     "reserver": familyName,
+      //     "startdate": startDateTimeString
+      //   };
+      // }
 
       function validate() {
-        alert("validate called");
-        var regexDate = ^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$;
-        var regexTime = ^(?:(?:([01]?\d|2[0-3]):)([0-5]\d))(:[0-5]\d)?$;
-        if (regexDate.test(document.getElementById("date").value)
-          && regexTime.test(document.getElementById("time").value)){
-          submit();
+        var regexDate = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[01])$/;
+        var regexTime = /^(?:(?:([01]?\d|2[0-3]):)([0-5]\d))(:[0-5]\d)?$/;
+        if (document.getElementById("name").value == ""){
+          alert("you must enter a family name");
+        }
+        else if (!regexDate.test(document.getElementById("date").value)){
+          alert("date is wrong: "+document.getElementById("date").value);
+        }
+        else if (!regexTime.test(document.getElementById("time").value)){
+          alert("time is wrong: "+document.getElementById("time").value);
         }
         else {
-          alert("looks bad yo");
+          submit();
         }
       }
     </script>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,13 +32,74 @@
           // will need to pull the events booked from the backend here
         });
       });
+
+      function validate() {
+
+      }
+
+      function submit(){
+        $.ajax({
+          type: 'POST',
+          url: "70.32.108.82:3000/" + '/reservation/' + formToJson(),
+          dataType: "json",
+          beforeSend:function(){
+
+          },
+          success:function(response) {
+
+          },
+          error:function(response){
+
+          },
+          complete:function(){
+
+          }
+        });
+      }
+
+      function formToJson(){
+        var startFormDateValues = document.getElementById("date").split("/");
+        var startFormTimeValues = document.getElementById("time").split(":");
+        var startYear = startFormDateValue[2],
+          startMonth = startFormDateValue[0],
+          startDay = startFormDateValue[1],
+          startHour = startFormTimeValues[0],
+          startMinute = startFormTimeValues[1];
+
+        var startDateTime = new Date(
+          startYear,
+          startMonth,
+          startDay,
+          startHour,
+          startMinute,
+          0
+        );
+
+        var endDateTime = startDateTime;
+        endDateTime = endDateTime.setTime(endDateTime.getTime() + (30*60000));
+
+        var startDateTimeString = startDay + "/" + startMonth + "/" + startYear
+          + " " + startHour + ":" + startMinute + ":00";
+
+        var endDateTimeString = endDateTime.getDate() + "/" +
+          endDateTime.getMonth() + "/" endDateTime.get
+
+        var familyName = document.getElementById("name") + "'s";
+
+        return {
+          "enddate": input,
+          "id": 0,
+          "reserver": ,
+          "startdate":
+        };
+      }
     </script>
   </head>
   <body>
     <div id="nav"></div>
     <!-- need to validate this form for correct time format -->
     <h1>Book A Time</h1>
-    <form class="well">
+    <form class="well" onsubmit="return validate()" method="post">
       <div class="form-group">
         <label for="familyName">Family Name:</label>
         <input type="text" class="form-control" id="name">

@@ -1,0 +1,42 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  // alert("Value is: "+window.location.search.split("=")[1]);
+  // $(document).ready(function(){
+  //   alert("here");
+  //   $.post("http://70.32.108.82:3000/qrcode/",
+  //   {
+  //       animalId: "1",
+  //       id: 0
+  //   },
+  //   function(data, status){
+  //     alert("test");
+  //       alert("Data: " + data + "\nStatus: " + status);
+  //   });
+  // });
+  //
+  // function getJson(){
+  //   var qrCodeId = window.location.search.split("=")[1];
+  //   return {
+  //     "animalId": qrCodeId,
+  //     "id": 0
+  //   }
+  // }
+  $(document).ready(function() {
+    alert("here");
+    $.ajax({
+        url: 'http://70.32.108.82:3000/qrcode/',
+        dataType: 'json',
+        type: 'post',
+        contentType: 'application/json',
+        data: {animalId: 'aknkd', id:8},
+        success: function( data, textStatus, jQxhr ){
+           alert(data);
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+          alert("error");
+            console.log( errorThrown );
+        }
+    });
+  });
+
+</script>

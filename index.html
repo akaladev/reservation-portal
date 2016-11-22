@@ -19,19 +19,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <link href="styles.css" rel="stylesheet">
   </head>
   <body>
     <div id="nav"></div>
-    <h1 class="text-center"><small>Welcome to</small>The Dome Experience</h1>
-    <div class="well" id="whoWeAre"></div>
-    <div class="well">
-      <h2><em>
-        Please see <a href="aboutUs.html">about us</a> to learn more or
-        <a href="bookATime">book a time</a>.
-        <span id="api-data">Derp</span>
-      </em></div>
+    <div id="right-container">
+      <img id="logoImg" src="images/playsphereLogo.png" width=100%>
+      <h2 style="color: #313487;">Live, Laugh, Learn</h2>
+      <p>
+        Bring your family down to the Play(sp)here for a fun, educational,
+        interactive activity that will have your family smiling all the way
+        home!
+      </p>
+      <img id="alwaysEducationalImg" src="images/always_educational.png">
     </div>
+    <div id="left-container">
+      <img src="images/girl_with_ball.png">
+    </div>
+
 
     <script>
       $(document).ready(function(){

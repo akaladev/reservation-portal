@@ -1,0 +1,69 @@
+body {
+  background-image: url("images/girl_with_ball_background.jpg");
+  background-size: 1500px auto;
+}
+#right-container {
+  padding-top: 50px;
+}
+#logoImg {
+  width: 80%;
+}
+#alwaysEducationalImg {
+  width: 60%;
+  padding-left: 10vw;
+}
+p {
+  padding-top: 30px;
+  color: white;
+  font-size: 2.5vw;
+  padding-right: 20%;
+}
+
+@media (min-width: 751px){
+  #right-container {
+    float: right;
+    width: 50%;
+    padding-right: 50px;
+    padding-left: 15px;
+  }
+
+  #right-container h2 {
+    font-size: 3vw;
+  }
+  #left-container {
+    position: absolute;
+    width: 50%;
+    left: 0;
+    bottom: 0;
+    height: 95vh;
+    float: left;
+  }
+  #left-container img {
+    position: absolute;
+    width: 100%;
+    max-width: 60vh;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 750px){
+  #right-container {
+    width: 100%;
+    padding-left: 20vw;
+  }
+  #right-container h2 {
+    font-size: 5vw;
+  }
+  #left-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    left: 0;
+    bottom: 0;
+  }
+  #left-container img {
+    position: relative;
+    height: 500px;
+  }
+}
